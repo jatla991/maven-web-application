@@ -22,3 +22,19 @@ steps:
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
   
+- task: CopyPublishBuildArtifacts@1
+  inputs:
+    CopyRoot: '$(system.defaultworkingdirectory)'
+    Contents: '**/*.war'
+    ArtifactName: 'maven'
+    ArtifactType: 'Container'
+  
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'mavenwebartifact'
+    publishLocation: 'Container'
+
+
+
+
