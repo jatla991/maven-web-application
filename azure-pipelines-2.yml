@@ -29,9 +29,9 @@ steps:
     ArtifactName: 'sample'
     ArtifactType: 'Container' 
 
-- task: AzureFileCopy@5
+- task: AzureFileCopy@3
   inputs:
-    SourcePath: '$(Build.ArtifactStagingDirectory)'
+    SourcePath: '$(system.defaultworkingdirectory)/**/*.war'
     azureSubscription: 'Free Trial(a238c2aa-03de-4ebe-8414-fbabd3c8d1ff)'
     Destination: 'AzureBlob'
     storage: 'firststorageaccoun461'
